@@ -42,7 +42,11 @@
         fuzzel
 	      xwayland-satellite
         waybar
-
+        mako
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+        gnome-keyring
+        
         # Configuration SDDM
         (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
           [General]
