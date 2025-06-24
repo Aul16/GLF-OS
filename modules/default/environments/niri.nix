@@ -31,6 +31,14 @@
 
     programs.niri.enable = true;
     documentation.nixos.enable = false;
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ 
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk 
+      ];
+      xdgOpenUsePortal = true;
+    };
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Packages système
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -39,14 +47,15 @@
         # Packages Niri
         alacritty
         swaylock
+        swayidle
         fuzzel
 	      xwayland-satellite
         waybar
         mako
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
         gnome-keyring
         nautilus
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
 
         # Configuration SDDM
         (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
