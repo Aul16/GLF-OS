@@ -69,7 +69,7 @@ fi
 if [ ''${#} -eq 0 ]; then
 	interface=1
 elif [ ''${#} -eq 2 ]; then
-	if { [ "''${1}" != "gnome" ] && [ "''${1}" != "plasma" ]; } || { [ "''${2}" != "standard" ] && [ "''${2}" != "mini" ] && [ "''${2}" != "studio" ] && [ "''${2}" != "studio-pro" ]; }; then
+	if { [ "''${1}" != "gnome" ] && [ "''${1}" != "plasma" ] && [ "''${1}" != "niri" ]; } || { [ "''${2}" != "standard" ] && [ "''${2}" != "mini" ] && [ "''${2}" != "studio" ] && [ "''${2}" != "studio-pro" ]; }; then
 		if [ -n "''${locale}" ] && [ "''${locale}" == "fr" ]; then
 			read -rp "''${error_arguments1_fr}"
 			exit 1
@@ -92,7 +92,7 @@ fi
 
 if [ "''${interface}" -eq 1 ]; then
 
-	environment_options=( "Gnome" "Plasma" )
+	environment_options=( "Gnome" "Plasma" "Niri" )
 	edition_options=( "Standard" "Mini" "Studio" "Studio | DaVinci Resolve Pro" )
 
 	if [ -n "''${locale}" ] && [ "''${locale}" == "fr" ]; then
@@ -110,6 +110,9 @@ if [ "''${interface}" -eq 1 ]; then
 		;;
 		'Plasma')
 			environment_short_name="plasma"
+		;;
+		'Niri')
+			environment_short_name="niri"
 		;;
 	esac
 
@@ -140,7 +143,7 @@ else
 
 	current_environment=$(if ${pkgs.gnugrep}/bin/grep -q 'glf.environment.type =' /etc/nixos/configuration.nix; then ${pkgs.gnugrep}/bin/grep 'glf.environment.type =' /etc/nixos/configuration.nix | ${pkgs.gnugrep}/bin/grep -o '"[^"]\+"' | sed 's/"//g'; else echo ""; fi)
 	current_edition=$(if ${pkgs.gnugrep}/bin/grep -q 'glf.environment.edition =' /etc/nixos/configuration.nix; then ${pkgs.gnugrep}/bin/grep 'glf.environment.edition =' /etc/nixos/configuration.nix | ${pkgs.gnugrep}/bin/grep -o '"[^"]\+"' | sed 's/"//g'; else echo ""; fi)
-	if [ "''${current_environment}" != "gnome" ] && [ "''${current_environment}" != "plasma" ]; then current_environment="gnome"; fi
+	if [ "''${current_environment}" != "gnome" ] && [ "''${current_environment}" != "plasma" ] && [ "''${current_environment}" != "niri" ]; then current_environment="gnome"; fi
 	if [ "''${current_edition}" != "standard" ] && [ "''${current_edition}" != "mini" ] && [ "''${current_edition}" != "studio" ] && [ "''${current_edition}" != "studio-pro" ]; then current_edition="standard"; fi
 	
 	if ${pkgs.gnugrep}/bin/grep -q 'glf.environment.type = ".*";' /etc/nixos/configuration.nix; then
