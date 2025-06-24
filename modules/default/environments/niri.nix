@@ -28,8 +28,10 @@
     environment = {
       systemPackages = with pkgs; [
         # Packages Niri
-        
-        
+        alacritty
+        swaylock
+        fuzzel
+
         # Configuration SDDM
         (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
           [General]
