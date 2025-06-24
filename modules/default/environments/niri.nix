@@ -22,7 +22,7 @@
     hardware.bluetooth.enable = true;
 
     # Workaround for intel according to https://nixos.wiki/wiki/Intel_Graphics and https://github.com/YaLTeR/niri/wiki/Getting-Started
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [
         vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
