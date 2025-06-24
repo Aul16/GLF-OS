@@ -40,7 +40,8 @@
         alacritty
         swaylock
         fuzzel
-	xwayland-satellite
+	      xwayland-satellite
+        waybar
 
         # Configuration SDDM
         (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
