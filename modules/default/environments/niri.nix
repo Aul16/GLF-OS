@@ -48,6 +48,7 @@
         alacritty
         swaylock
         swayidle
+        swaybg
         fuzzel
 	      xwayland-satellite
         waybar
