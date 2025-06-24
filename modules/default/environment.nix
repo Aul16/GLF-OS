@@ -11,7 +11,7 @@ with lib;
     };
     type = mkOption {
       description = "Desktop environment selection";
-      type = with types; enum [ "gnome" "plasma" ];
+      type = with types; enum [ "gnome" "plasma" "niri" ];
       default = "gnome";
     };
     edition = mkOption {
@@ -25,6 +25,7 @@ with lib;
   imports = [
     ./environments/gnome.nix
     ./environments/plasma.nix
+    ./environments/niri.nix
     ./environments/studio.nix
   ];
 
