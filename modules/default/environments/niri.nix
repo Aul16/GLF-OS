@@ -14,7 +14,6 @@
         defaultSession = "niri";
         sddm = {
           enable = true;
-          theme = "breeze";
         };
       };
     };
@@ -29,6 +28,7 @@
     };
 
     programs.niri.enable = true;
+    security.polkit.enable = true;
     documentation.nixos.enable = false;
     xdg.portal = {
       enable = true;
@@ -49,19 +49,13 @@
         swayidle
         swaybg
         fuzzel
-	      xwayland-satellite
+	xwayland-satellite
         waybar
         mako
         gnome-keyring
         nautilus
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
-
-        # Configuration SDDM
-        (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
-          [General]
-          background=/etc/wallpapers/glf/white.jpg
-        '')
       ];
     };
   };
