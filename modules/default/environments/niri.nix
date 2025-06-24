@@ -46,7 +46,8 @@
         xdg-desktop-portal-gnome
         xdg-desktop-portal-gtk
         gnome-keyring
-        
+        nautilus
+
         # Configuration SDDM
         (writeTextDir "share/sddm/themes/breeze/theme.conf.user" ''
           [General]
